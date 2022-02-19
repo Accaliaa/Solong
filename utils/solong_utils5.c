@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 14:39:35 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/19 17:15:27 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:21:34 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	lines_cal(char *name)
 	s = maplenght(fd);
 	i = 0;
 	while (s)
-	{
+	{	
 		free(s);
 		s = maplenght(fd);
 		i++;
@@ -76,7 +76,7 @@ int	lines_cal(char *name)
 	}
 	if (c != '1')
 	{
-		ft_printf("Error\n check the map");
+		ft_printf("Error \n check map");
 		exit(0);
 	}
 	close(fd);

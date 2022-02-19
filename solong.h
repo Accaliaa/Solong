@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 21:34:45 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/19 16:31:34 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:59:16 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ typedef struct s_data {
 	void	*ground;
 	void	*player;
 	void	*coin;
-	void	*exit;
+	void	*exit;	
 	char	**mat;
 	int		size[2];
+
 }	t_data;
 
 typedef struct s_vars {
@@ -38,7 +39,6 @@ typedef struct s_vars {
 	int		j;
 	int		i;
 	int		steps;
-	char	*name;
 	t_data	img;
 }	t_vars;
 

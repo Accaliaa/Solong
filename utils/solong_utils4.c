@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:09:59 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/19 17:13:59 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:23:04 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ext_check(char *c, char *s)
 	{
 		if (c[j] != s[i])
 		{
-			ft_printf("Error\ncheck extension");
+			ft_printf("Error \n check extension");
 			return (0);
 		}
 		i++;
@@ -95,8 +95,8 @@ int	checksize(t_vars *vars)
 	while (i < vars->data.size[0])
 	{
 		if (size != (int)ft_strlen(vars->data.mat[i]))
-		{
-			ft_printf("Error\n check the map \n");
+		{		
+			ft_printf("Error \n check the map \n");
 			return (0);
 		}
 		i++;

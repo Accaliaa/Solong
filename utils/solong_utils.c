@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 21:08:33 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/16 16:22:35 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 18:22:38 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	handlexit(t_vars *vars)
 		{
 			if (vars->data.mat[l][k] == 'C')
 			{
-				ft_printf("please collect all the coins first \n");
+				ft_printf("Error \n please collect all the coins first \n");
 				return (0);
 			}
 			k++;
