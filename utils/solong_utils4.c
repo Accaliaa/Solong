@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:09:59 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/19 09:16:17 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:13:59 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ext_check(char *c, char *s)
 	{
 		if (c[j] != s[i])
 		{
-			ft_printf("error : check extension");
+			ft_printf("Error\ncheck extension");
 			return (0);
 		}
 		i++;
@@ -64,6 +64,11 @@ void	mapcalcul(char *name, t_vars *vars)
 	fd = open(name, O_RDWR);
 	vars->data.size[0] = 0;
 	s = get_next_line(fd);
+	if (!s)
+	{
+		ft_printf("Error\nInvalid Map");
+		exit(0);
+	}
 	vars->data.size[1] = ft_strlen(s);
 	while (s)
 	{
@@ -71,7 +76,6 @@ void	mapcalcul(char *name, t_vars *vars)
 		vars->data.size[0]++;
 		s = get_next_line(fd);
 	}
-	ft_printf("hna : %d \n", vars->data.size[0]);
 	close(fd);
 }
 
@@ -91,7 +95,10 @@ int	checksize(t_vars *vars)
 	while (i < vars->data.size[0])
 	{
 		if (size != (int)ft_strlen(vars->data.mat[i]))
+		{
+			ft_printf("Error\n check the map \n");
 			return (0);
+		}
 		i++;
 	}
 	return (1);

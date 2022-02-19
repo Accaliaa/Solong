@@ -6,15 +6,15 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:00:51 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/18 16:25:48 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 14:48:25 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:37:31 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/16 21:29:46 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:05:47 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,25 @@ void	mapgenerat(t_vars *vars)
 int	maperror(t_vars *vars)
 {
 	if (!checksize(vars))
-	{
-		ft_printf("Error map : check the map \n");
 		return (0);
-	}
 	if (!checkwalls(vars))
 	{
-		ft_printf("Error map : check the walls \n");
+		ft_printf("Error\n check the walls \n");
 		return (0);
 	}
 	if (checkplayer(vars) != 1)
 	{
-		ft_printf("Error map : check the Player \n");
+		ft_printf("Error\n check the player \n");
 		return (0);
 	}
 	if (!checkexit(vars))
 	{
-		ft_printf("Error map : check the exit \n");
+		ft_printf("Error\n check the exit \n");
 		return (0);
 	}
 	if (!checkcoin(vars))
 	{
-		ft_printf("Error map : check the walls \n");
+		ft_printf("Error\n check the coins \n");
 		return (0);
 	}
 	return (1);
@@ -75,14 +72,19 @@ int	argcheck(int argc, t_vars *vars, char *str)
 {
 	if (argc != 2)
 	{
-		ft_printf("error : arguments not valid \n");
+		ft_printf("Error\n arguments not valid \n");
 		return (0);
 	}
 	vars->j = 0;
 	vars->steps = 0;
 	if (!mapcheck(str))
 	{
-		ft_printf("the map should exist \n");
+		ft_printf("Error\n the map should exist \n");
+		return (0);
+	}
+	if (lines_cal(vars->name) != vars->data.size[0])
+	{
+		ft_printf("Error\n check the map \n");
 		return (0);
 	}
 	return (1);
@@ -92,12 +94,12 @@ int	main(int argc, char **argv)
 {
 	t_vars	vars;
 
+	vars.name = argv[1];
 	if (argcheck(argc, &vars, argv[1]) == 0)
 		return (0);
 	mapcalcul(argv[1], &vars);
 	if (!mapread(argv[1], &vars) || !checkchar("PEC01", &vars) || \
-			!maperror(&vars) || \
-			!ext_check(".ber", argv[1]))
+			!maperror(&vars) ||!ext_check(".ber", argv[1]))
 		return (0);
 	initimage(&vars);
 	vars.mlx = mlx_init();

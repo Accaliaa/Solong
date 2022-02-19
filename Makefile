@@ -4,6 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = utils/solong_utils2.c \
 	   utils/solong_utils3.c \
 	   utils/solong_utils4.c \
+	   utils/solong_utils5.c \
 	   utils/solong_utils.c \
 	   solong.c \
        get_next_line/get_next_line.c \

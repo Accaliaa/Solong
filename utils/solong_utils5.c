@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   solong_utils5.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 14:59:48 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/19 10:23:12 by zdasser          ###   ########.fr       */
+/*   Created: 2022/02/19 14:39:35 by zdasser           #+#    #+#             */
+/*   Updated: 2022/02/19 17:15:27 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
+#include "../solong.h"
+#include "../get_next_line/get_next_line.h"
 
-char	*ft_getrest(char *s)
+char	*ftline(char *s)
 {
 	size_t	i;
 
@@ -23,52 +23,13 @@ char	*ft_getrest(char *s)
 	while (s[i])
 	{
 		if (s[i] == '\n')
-			return (ft_substr(s, i + 1, ft_strlen(s)));
-		i++;
-	}
-	return (ft_strdup(""));
-}
-
-char	*ft_getline(char *s)
-{
-	size_t	i;
-
-	if (!s)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == '\n')
-			return (ft_substr(s, 0, i));
+			return (ft_substr(s, 0, i + 1));
 		i++;
 	}
 	return (ft_strdup(s));
 }
 
-void	check(int fd, char **rest)
-{
-	int		j;
-	char	*tmp;
-	char	*buff;
-
-	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	while (!nl(*rest))
-	{
-		j = read(fd, buff, BUFFER_SIZE);
-		if (j <= 0)
-			break ;
-		else
-		{
-			buff[j] = '\0';
-			tmp = *rest;
-			*rest = ft_strjoin(*rest, buff);
-			free(tmp);
-		}
-	}
-	free(buff);
-}
-
-char	*get_next_line(int fd)
+char	*maplenght(int fd)
 {
 	char		*line;
 	char		*tmp;
@@ -77,7 +38,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	check(fd, &rest);
-	line = ft_getline(rest);
+	line = ftline(rest);
 	tmp = rest;
 	rest = ft_getrest(rest);
 	free(tmp);
@@ -93,4 +54,31 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	return (line);
+}
+
+int	lines_cal(char *name)
+{
+	int		fd;
+	char	*s;
+	int		i;
+	char	c;
+
+	fd = open(name, O_RDWR);
+	s = maplenght(fd);
+	i = 0;
+	while (s)
+	{
+		free(s);
+		s = maplenght(fd);
+		i++;
+		if (s)
+			c = s[ft_strlen(s) - 1];
+	}
+	if (c != '1')
+	{
+		ft_printf("Error\n check the map");
+		exit(0);
+	}
+	close(fd);
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 13:07:35 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/19 09:18:21 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 17:06:08 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	checkwalls(t_vars *vars)
 				vars->data.mat[vars->data.size[0] - 1][k] != '1' || \
 				vars->data.mat[l][0] != '1' || \
 				vars->data.mat[l][vars->data.size[1] - 1] != '1' || \
-				(size_t)vars->data.size[1] != ft_strlen(vars->data.mat[l]))
+				vars->data.size[1] != ft_strlen(vars->data.mat[l]))
 			{
 				return (0);
 			}
@@ -50,7 +50,7 @@ int	checkchar(char *s, t_vars *vars)
 		{
 			if (!ft_strchr(s, vars->data.mat[l][k]))
 			{
-				ft_printf("Error : check map \n");
+				ft_printf("Error\n check map \n");
 				return (0);
 			}
 			k++;

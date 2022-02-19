@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 21:34:45 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/18 15:34:36 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 16:31:34 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_vars {
 	int		j;
 	int		i;
 	int		steps;
+	char	*name;
 	t_data	img;
 }	t_vars;
 
@@ -61,5 +62,6 @@ int		checkplayer(t_vars *vars);
 int		checkexit(t_vars *vars);
 int		checkcoin(t_vars *vars);
 int		closewindow(void);
+int		lines_cal(char *name);
 
 #endif

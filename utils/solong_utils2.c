@@ -6,7 +6,7 @@
 /*   By: zdasser <zdasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 21:34:54 by zdasser           #+#    #+#             */
-/*   Updated: 2022/02/16 21:32:42 by zdasser          ###   ########.fr       */
+/*   Updated: 2022/02/19 14:43:41 by zdasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ int	mapread(char *name, t_vars *vars)
 	s = get_next_line(fd);
 	while (i < vars->data.size[0])
 	{
-		ft_printf("s = %s\n", s);
 		if (!s)
 			return (0);
+		ft_printf("s = %s\n", s);
 		vars->data.mat[i] = s;
 		i++;
 		s = get_next_line(fd);
